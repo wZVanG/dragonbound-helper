@@ -1,0 +1,44 @@
+﻿{
+	"extName": 							{"message": "DragonBound Helper"},
+	"extDesc": 							{"message": "DragonBound Helper, not aimbot!"},
+	"startApp": 							{"message": "Start DragonBound Helper"},
+	"pageTitle": 							{
+		"message": "$TITLE$ Beta - Version: $VERSION$",
+		"placeholders": {
+			"title": { "content": "$1" },
+			"version": { "content": "$2" }
+		}
+	},
+	"helperTitle": 							{
+		"message": "$TITLE$ Calculator - Version: $VERSION$",
+		"placeholders": {
+			"title": { "content": "$1" },
+			"version": { "content": "$2" }
+		}
+	},
+	"pageCaption": {
+		"message": "$PAGE_URL$ ©",
+		"placeholders": {
+			"version": { "content": "$1" },
+			"page_url": { "content": "$2" }
+		}
+	},
+	"pageVersion": {
+		"message": "V$VERSION$",
+		"placeholders": {
+			"version": { "content": "$1" }
+		}
+	},
+	"calculatePower":{
+		"message": "Power"
+	},
+	"keyBoard": {
+		"message": "Keyboard"
+	},
+	"strPlayerSelf":{
+		"message": "Mobile"
+	},
+	"strPlayerOponent":{
+		"message": "Oponent"
+	}
+}

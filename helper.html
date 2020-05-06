@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./css/jquery-ui.css" />
+	<!--<link rel="stylesheet" href="./css/jquery-ui.theme.min.css" />-->
+	<link rel="stylesheet" href="./css/fonts.css" />
+	<link rel="stylesheet" href="./css/helper.css" />
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.transit.min.js"></script>
+	
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/game_constants.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/helper.js"></script>
+	<title data-lang="helperTitle" data-langparams="APPNAME,VERSION">&nbsp;</title>
+</head>
+<body>
+	<div id="main">
+		<div id="logo">
+			<div class="abs logo_bg"></div>
+			<div class="abs logo_title">
+				<div class="logo_image"></div>
+			</div>
+			<div class="abs logo_content">
+				<div id="loading">
+					<div class="spinner">
+						<div class="bounce1"></div>
+						<div class="bounce2"></div>
+						<div class="bounce3"></div>
+					</div>
+				</div>
+				<div id="select_map" class="wrap_buttons">
+
+					<button class="button button_arrow button_icon diag" data-dir="left">
+						<span class="ui-state-active"><span class="ui-icon ui-icon-arrowthick-1-w"></span></span>
+					</button>
+					<button id="map_button" class="button pressed diag text_normal text_shadow text_uppercase" data-dir="right">Metamine</button>
+					<button class="button button_arrow button_icon diag" data-dir="right">
+						<span class="ui-state-active"><span class="ui-icon ui-icon-arrowthick-1-e"></span></span>
+					</button>
+				</div>
+				<div id="select_mobile" class="wrap_buttons">
+					<button class="button button_arrow button_icon diag" data-dir="left">
+						<span class="ui-state-active"><span class="ui-icon ui-icon-arrowthick-1-w"></span></span>
+					</button>
+					<button id="mobile_button" class="button pressed diag text_normal text_shadow text_uppercase" data-dir="right">Armor</button>
+					<button class="button button_arrow button_icon diag" data-dir="right">
+						<span class="ui-state-active"><span class="ui-icon ui-icon-arrowthick-1-e"></span></span>
+					</button>
+				</div>
+				<div id="config_wrap" class="wrap_buttons">
+					<button class="button button_icon diag" id="config_button">
+						<span class="ui-state-active"><span class="ui-icon ui-icon-wrench"></span></span>
+					</button>
+					<button class="button button_icon diag" id="help_button">
+						<span class="ui-state-active"><span class="ui-icon ui-icon-help"></span></span>
+					</button>
+				</div>
+				<!--<div id="like">
+					<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A//www.facebook.com/DragonBoundHelper&amp;layout=button_count&amp;show_faces=false&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden;  height:20px; width:70px" allowTransparency="true"></iframe>
+				</div>-->
+			</div>
+
+		</div>
+		<div class="mobil_wind_wrap">
+			<!-- -->
+			<div id="wind" class="anim">
+				<svg height="163" width="163">
+					<linearGradient id="grad_bg" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="100%">
+						<stop stop-color="#6491BA" offset="0"/><stop stop-color="#304551" offset="1"/>
+					</linearGradient>
+					<linearGradient id="grad_fg" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="100%">
+						<stop stop-color="#706868" offset="0"/><stop stop-color="#322F2C" offset="1"/>
+					</linearGradient>
+					
+					<circle cx="82" cy="82" r="80" stroke="black" stroke-width="2" fill="url(#grad_bg)" />
+					<rect x="3" y="80" width="158" height="3" fill="#FFB13B" stroke="#995C1F" stroke-width="1" transform="rotate(90 80 80)"/>
+					<rect x="3" y="80" width="158" height="3" fill="#E2A556" stroke="#995C1F" stroke-width="1" transform="rotate(0 80 80)"/>
+					<rect x="3" y="80" width="158" height="3" fill="#B1A297" stroke="#53504F" stroke-width="1" transform="rotate(45 80 80)"/>
+					<rect x="1" y="80" width="158" height="3" fill="#B1A297" stroke="#53504F" stroke-width="1" transform="rotate(-45 80 80)"/>
+					<circle cx="81" cy="81" r="60" stroke="black" stroke-width="3" fill="url(#grad_fg)" />
+					<div id="windmark"></div>
+					<div class="windvalue-wrap"><input type="text" id="windvalue" value="00" maxlength="2" data-tabindex="windValue" /></div>
+				</svg>
+			</div>
+		</div>
+
+		<div id="graph_players"></div>
+		<div id="graph_map"></div>
+		<div id="sel_angle" class="abs anim">
+			<div class="angle-wrap"><input type="text" maxlength="2" id="angle" data-tabindex="angle" class="text-center" /></div>
+	          <!--<div id="mobile_draw_angle" class="anim"></div>-->	           
+		</div>
+
+		<div id="graph_result" class="anim"><div id="result_text"></div><div id="result_bar"></div></div>
+
+		<div id="get_power_button" class="anim">
+			<div data-lang="calculatePower"></div>
+		</div>
+
+		<div id="config" title="Configuración">
+			<h4 data-lang="keyBoard"></h4>
+			<table class="table-keys">
+				<tr>
+					<td>
+						<div class="text-center" data-lang="strPlayerSelf"></div>
+						<div class="graphic-self"></div>
+						<select class="keycode" id="self_key" data-keytype="selfKey"></select>
+					</td>
+					<td>
+						<div class="text-center" data-lang="strPlayerOponent"></div>
+						<div class="graphic-oponent"></div>
+						<select class="keycode" id="oponent_key" data-keytype="oponentKey"></select>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="help" title="Ayuda">
+			<h3>Ayuda</h3>
+			<h4>¿Cómo usar?</h4>
+			<p>Usa las teclas <b>A</b> y <b>D</b> o las teclas configuradas junto con el movimiento del mouse para mover los jugadores.</p>
+			<p>&nbsp;</p>
+			<p>Ahora presiona el botón <b>Power</b> o la tecla espaciadora para calcular la fuerza que necesitas.</p>
+			<p>&nbsp;</p>
+			<h4>¿Quieres saber más?</h4>
+			<p><img src="/img/19.png" class="logo-icon" /> <a href="http://dragonboundaimbot.com/helper" target="_blank">Ingresa a la página</a></p>
+		</div>
+		<canvas id="line"></canvas>
+
+		<div id="dba">
+			<div class="btn-close" id="btn-dba"><img src="/img/dba_logo_19.png" /><span class="minus"></span></div>
+			<div class="content-focus"><img src="/img/dba_logo_19.png" /></div>
+			<div class="content">
+				<h2>¿Quieres calcular automáticamente?</h2>
+				<p class="message">Prueba DragonBound Aimbot!</p>
+				<ol>
+					<li>La posición de jugadores es automática, no tienes hacer mediciones con el mouse.</li>
+					<li>No necesitas indicar el viento ni el número de viento.</li>
+					<li>El cálculo es automático sin realizar ningún paso!.</li>
+				</ol>
+				<p><a href="http://dragonboundaimbot.com/video" target="_blank">¡ Mira el vídeo aquí !</a></p>
+				<p><a href="javascript://" id="btn-close-dba">Omitir por ahora</a></p>
+			</div>
+		</div>
+	</div>
+	<!--<div id="drag" title="Mover ventana"></div>-->
+</body>
+</html>

@@ -1,0 +1,91 @@
+html, body{}
+body { margin:0; padding: 0; background: #000; -webkit-transition:background-color 0.25s ease-in; cursor: default;
+font: 13px/auto 'Helvetica', sans-serif; }
+body, a, .ui-widget-content a,  a:hover {color:#fff;}
+div, p, ul, li {margin: 0; padding: 0; }
+button, input {outline: none;}
+* {-webkit-box-sizing: border-box; }
+a,.ui-widget-content a {text-decoration: none; outline: none; }
+
+#main{ width: 240px;  overflow: hidden}
+.logo {width:180px; margin:0px auto; -webkit-animation:logo 0.25s 0.25s 1 forwards; -webkit-transform:scale(0) rotate(60deg);
+cursor: crosshair;}
+.apps > div{
+	-webkit-transition: all 0.25s ease-in;
+	height:50px;
+	line-height: 50px;
+	text-align: center;
+	margin: 3px auto;
+	background: blue;
+	cursor: pointer;
+	font-size:12pt;
+	position: relative;
+	font-family:ptsans_nb; 
+	-webkit-transform:scale(0);
+	-webkit-animation:zoom 0.25s 0.5s 1 forwards;
+}
+.apps > div > small{ font-size:10px; text-transform: lowercase;}
+.apps > div.disabled{
+	color:#666;
+	cursor: default;
+}
+
+.apps > div:hover{
+	background: #fff;
+	color:#000;
+	-webkit-transform:translate(20px, 0);
+}
+.apps > div:hover:before{
+	background: blue;
+	-webkit-transform:skew(30deg);
+}
+.apps > div:hover:after{
+	-webkit-transform:rotate(0deg);
+	opacity: 1;
+}
+.apps > div:before, .apps > div:after{
+	content:'';
+	display: block;
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.25s ease-in;
+}
+.apps > div:before{
+
+	width:25%;
+	height: 100%;
+	right:-16px;
+	top:0;
+}
+.apps > div:after{
+	width:19px;
+	height:19px;
+	z-index: 3;
+	top:50%;
+	right:15px;
+	margin-top:-8px;
+	background: transparent url(../img/19.png) no-repeat 0;
+	-webkit-transform:rotate(180deg);
+	opacity: 0;
+}
+.apps > div.disabled:after{
+	opacity: 0
+}
+.apps > div:nth-child(1){ -webkit-animation-delay:0.55s}
+.apps > div:nth-child(2){ -webkit-animation-delay:0.65s}
+.apps > div:nth-child(3){ -webkit-animation-delay:0.75s}
+
+.like{text-align: right; margin-right: 5px}
+.footer{font-size:9px; margin:5px 5px 5px 0; text-align: right}
+.footer a:hover{text-decoration: underline;}
+
+@-webkit-keyframes zoom{
+	100%{
+		-webkit-transform:scale(1);
+	}
+}
+@-webkit-keyframes logo{
+	100%{
+		-webkit-transform:scale(1) rotate(0deg);
+	}
+}
