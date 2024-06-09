@@ -39,8 +39,9 @@ Lamentablemente, la API `http://dragonboundaimbot.com/app/power` utilizada para 
 
 ## Contacto
 
-Para cualquier consulta, puedes contactarme a través de wz.vang@gmail.com.
+- Para cualquier consulta, puedes contactarme a través de wz.vang@gmail.com (Walter Chapilliquen)
+- Referencias: https://www.facebook.com/DragonBound.Aimbot
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
+MIT
